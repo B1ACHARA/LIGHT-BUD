@@ -93,36 +93,44 @@
     </main>
 
     <!-- 🔥 JavaScript do obsługi formularza -->
-    <script>
-        document.getElementById("contactForm").addEventListener("submit", function(event) {
-            event.preventDefault();
-            
-            var form = this;
-            var formData = new FormData(form);
-            var messageBox = document.getElementById("formMessage");
+<script>
+document.querySelector(".contact-form").addEventListener("submit", function(event) {
+    event.preventDefault(); // Zatrzymaj domyślne wysyłanie
+    var form = this;
+    
+    fetch(form.action, {
+        method: form.method,
+        body: new FormData(form),
+        headers: {
+            "Accept": "application/json"
+        }
+    }).then(response => {
+        if (response.ok) {
+            // Pokazuje komunikat o sukcesie
+            let successMessage = document.createElement("div");
+            successMessage.classList.add("success-message");
+            successMessage.innerHTML = "✅ Wiadomość wysłana pomyślnie!";
+            form.appendChild(successMessage);
+            setTimeout(() => successMessage.remove(), 3000);
 
-            fetch(form.action, {
-                method: form.method,
-                body: formData,
-                headers: { 'Accept': 'application/json' }
-            }).then(response => {
-                if (response.ok) {
-                    messageBox.textContent = "Dziękujemy! Wiadomość została wysłana.";
-                    messageBox.className = "form-message success";
-                    messageBox.style.display = "block";
-                    form.reset();
-                } else {
-                    messageBox.textContent = "Błąd wysyłania formularza. Spróbuj ponownie.";
-                    messageBox.className = "form-message error";
-                    messageBox.style.display = "block";
-                }
-            }).catch(error => {
-                messageBox.textContent = "Błąd połączenia. Spróbuj ponownie.";
-                messageBox.className = "form-message error";
-                messageBox.style.display = "block";
-            });
-        });
-    </script>
+            form.reset();
+        } else {
+            let errorMessage = document.createElement("div");
+            errorMessage.classList.add("error-message");
+            errorMessage.innerHTML = "❌ Wystąpił błąd. Spróbuj ponownie.";
+            form.appendChild(errorMessage);
+            setTimeout(() => errorMessage.remove(), 3000);
+        }
+    }).catch(error => {
+        let errorMessage = document.createElement("div");
+        errorMessage.classList.add("error-message");
+        errorMessage.innerHTML = "❌ Wystąpił problem z połączeniem.";
+        form.appendChild(errorMessage);
+        setTimeout(() => errorMessage.remove(), 3000);
+    });
+});
+</script>
+
 
 </body>
 </html>
