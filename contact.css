@@ -1,45 +1,17 @@
-﻿/* 🔥 Import czcionki Poppins */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
-
-/* 🔥 Resetowanie stylów */
+/* 🔥 Resetowanie domyślnych stylów */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Arial', sans-serif;
 }
 
-/* 🔥 Tło strony */
+/* 🔥 Ustawienia ogólne */
 body {
-    background: #0D0D0D;
+    background-color: #121212;
     color: white;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
-
-/* 🔥 Preloader */
-.preloader {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background: #000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-    transition: opacity 0.5s ease-in-out;
-}
-
-.preloader-logo {
-    font-size: 40px;
-    font-weight: bold;
-    color: #00BFFF;
-}
-
-.preloader-hidden {
-    opacity: 0;
-    pointer-events: none;
+    text-align: center;
+    padding: 20px;
 }
 
 /* 🔥 Pasek nawigacji */
@@ -68,277 +40,182 @@ body {
 
 .navbar-list li {
     margin: 0 12px;
-    position: relative;
 }
 
-/* 🔥 Animacja podkreślenia linków */
 .navbar-list a {
     text-decoration: none;
     color: white;
     font-size: 15px;
-    padding: 8px 0;
     position: relative;
     transition: color 0.3s ease-in-out;
 }
 
-/* 🔥 Podkreślenie animowane */
-.navbar-list a::after {
-    content: "";
-    position: absolute;
-    left: 50%;
-    bottom: -3px;
-    width: 0;
-    height: 2px;
-    background: #00BFFF;
-    transition: all 0.3s ease-in-out;
-    transform: translateX(-50%);
-}
-
-/* 🔥 Efekt hover i aktywnego linku */
-.navbar-list a:hover::after,
-.navbar-list a.active::after {
-    width: 100%;
-}
-
-/* 🔥 Efekt zmiany koloru na hover */
-.navbar-list a:hover {
-    color: white;
+.navbar-list a.active {
+    color: #00BFFF;
+    font-weight: bold;
 }
 
 /* 🔥 Sekcja kontaktowa */
 .contact-section {
-    text-align: center;
-    padding: 50px 20px;
+    max-width: 800px;
+    margin: 40px auto;
+    background: #222;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-/* 🔥 Zmiana koloru pierwszego napisu na niebieski */
 .contact-section h1 {
-    font-size: 36px;
+    font-size: 28px;
     color: #00BFFF;
+    margin-bottom: 10px;
 }
 
 .contact-section p {
-    font-size: 18px;
-    color: #bbb;
-    margin-bottom: 30px;
+    font-size: 16px;
+    margin-bottom: 20px;
 }
 
-/* 🔥 Kontener dla danych i formularza */
+/* 🔥 Kontener kontaktowy */
 .contact-container {
     display: flex;
     justify-content: space-between;
-    align-items: stretch;
-    gap: 40px;
-    max-width: 1100px;
-    margin: 50px auto;
-    padding: 20px;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
-/* 🔥 Moje dane (lewa strona) */
+/* 🔥 Lewa strona: Informacje kontaktowe */
 .contact-info {
-    background: #111;
-    padding: 30px;
-    border-radius: 12px;
     flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    background: #333;
+    padding: 15px;
+    border-radius: 8px;
     text-align: left;
 }
 
-/* 🔥 Tytuł "Moje dane" */
 .contact-info h3 {
     color: #00BFFF;
-    font-size: 22px;
-    font-weight: bold;
-    margin-bottom: 20px;
-    text-align: center;
+    margin-bottom: 10px;
 }
 
-/* 🔥 Styl pojedynczych danych */
 .contact-item {
     display: flex;
     align-items: center;
-    gap: 12px;
-    background: #222;
-    padding: 12px;
-    border-radius: 8px;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
+    font-size: 14px;
 }
 
-/* 🔥 Ikony w sekcji "Moje dane" */
 .contact-item i {
-    font-size: 20px;
+    margin-right: 10px;
     color: #00BFFF;
 }
 
-/* 🔥 Tekst danych */
-.contact-item span, .contact-item a {
-    color: #bbb;
-    font-size: 16px;
+.contact-item a {
+    color: #00BFFF;
     text-decoration: none;
-    transition: color 0.3s ease-in-out;
 }
 
-/* 🔥 Efekt hover dla emaila */
-.contact-item a:hover {
-    color: #00BFFF;
-}
-
-/* 🔥 Formularz kontaktowy (prawa strona) */
+/* 🔥 Prawa strona: Formularz kontaktowy */
 .contact-form {
-    background: #111;
-    padding: 30px;
-    border-radius: 12px;
     flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    background: #333;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: left;
 }
 
-/* 🔥 Tytuł formularza */
 .contact-form h3 {
     color: #00BFFF;
-    font-size: 22px;
-    margin-bottom: 20px;
-    text-align: center;
+    margin-bottom: 10px;
 }
 
-/* 🔥 Pola formularza */
-.contact-form input,
-.contact-form textarea {
-    width: 100%;
-    padding: 12px;
+/* 🔥 Style pól formularza */
+.form-group {
+    position: relative;
     margin-bottom: 15px;
-    border: none;
-    border-radius: 8px;
+}
+
+.form-group i {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    color: #00BFFF;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px 10px 10px 35px;
+    border: 1px solid #444;
     background: #222;
+    color: white;
+    border-radius: 5px;
+}
+
+.form-group textarea {
+    resize: none;
+}
+
+/* 🔥 Przycisk wysyłania */
+button {
+    width: 100%;
+    padding: 10px;
+    background: #00BFFF;
+    color: white;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background: #0080ff;
+}
+
+/* 🔥 Powiadomienia */
+.success-message,
+.error-message {
+    display: none;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.success-message {
+    background: #28a745;
     color: white;
 }
 
-/* 🔥 Przycisk formularza */
-.contact-form button {
-    width: 100%;
-    padding: 12px;
-    border: none;
-    border-radius: 8px;
-    background: #00BFFF;
-    color: black;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
-}
-
-/* 🔥 Efekt hover przycisku */
-.contact-form button:hover {
-    background: black;
-    color: #00BFFF;
-    border: 2px solid #00BFFF;
-    transform: scale(1.05);
+.error-message {
+    background: #dc3545;
+    color: white;
 }
 
 /* 🔥 Stopka */
 .footer {
+    margin-top: 30px;
+    padding: 10px;
     background: #111;
-    color: white;
-    width: 100%;
-    padding: 30px 0;
-    text-align: center;
-    margin-top: auto;
+    border-radius: 8px;
 }
 
-/* 🔥 Kontener stopki */
 .footer-container {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    max-width: 1200px;
-    margin: auto;
-    padding: 15px;
-}
-
-/* 🔥 Kolumny stopki */
-.footer-column {
     text-align: center;
-    margin-bottom: 15px;
 }
 
-/* 🔥 Nagłówki stopki */
 .footer-column h3 {
     color: #00BFFF;
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 8px;
 }
 
-/* 🔥 Teksty i linki w stopce */
-.footer-column p, .footer-column a {
-    color: #bbb;
+.footer p {
     font-size: 14px;
-    text-decoration: none;
-    transition: color 0.3s ease-in-out;
-}
-
-.footer-column a:hover {
-    color: #00BFFF;
-}
-
-/* 🔥 Ikony kontaktowe */
-.footer-column p i {
-    font-size: 16px;
-    margin-right: 6px;
-    color: #00BFFF;
-}
-
-/* 🔥 Dolna część stopki */
-.footer-bottom {
-    margin-top: 10px;
-    border-top: 1px solid #222;
-    padding-top: 8px;
-    font-size: 13px;
     color: #bbb;
 }
 
-/* 🔥 Poprawiona responsywność sekcji kontaktowej */
-@media (max-width: 768px) {
-    .contact-container {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-
-    .contact-info,
-    .contact-form {
-        width: 100%;
-        max-width: 400px;
-    }
-
-    .contact-item {
-        justify-content: center;
-    }
-}
-
-/* 🔥 Responsywność */
-@media (max-width: 900px) {
-    .services-container {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 600px) {
-    .services-container {
-        grid-template-columns: repeat(1, 1fr);
-    }
-
-    .navbar {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-
-    .navbar-list {
-        flex-direction: column;
-        gap: 10px;
-    }
+.footer a {
+    color: #00BFFF;
+    text-decoration: none;
 }
