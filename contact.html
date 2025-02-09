@@ -7,6 +7,25 @@
     <link rel="stylesheet" href="contact.css">
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        /* 🔥 Styl dla powiadomień */
+        .form-message {
+            display: none;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+            text-align: center;
+            font-weight: bold;
+        }
+        .form-message.success {
+            background-color: #28a745;
+            color: white;
+        }
+        .form-message.error {
+            background-color: #dc3545;
+            color: white;
+        }
+    </style>
 </head>
 <body>
 
@@ -27,7 +46,7 @@
         <p>Masz pytania? Wypełnij formularz lub zadzwoń do nas!</p>
 
         <div class="contact-container">
-            <!-- 🔥 Moje dane (lewa strona) -->
+            <!-- 🔥 Moje dane -->
             <div class="contact-info">
                 <h3>Moje dane</h3>
                 <div class="contact-item">
@@ -44,8 +63,8 @@
                 </div>
             </div>
 
-            <!-- 🔥 Formularz kontaktowy (prawa strona) -->
-            <form action="https://formspree.io/f/xeoeznkl" method="POST" class="contact-form">
+            <!-- 🔥 Formularz kontaktowy -->
+            <form id="contactForm" action="https://formspree.io/f/xeoeznkl" method="POST" class="contact-form">
                 <h3>Formularz kontaktowy</h3>
                 
                 <div class="form-group">
@@ -63,36 +82,24 @@
                     <textarea id="message" name="message" placeholder="Twoja wiadomość" rows="5" required></textarea>
                 </div>
 
-                <!-- Ukryte pole zabezpieczające -->
                 <input type="hidden" name="_subject" value="Nowa wiadomość z formularza Light-Bud!">
 
                 <button type="submit">Wyślij</button>
+
+                <!-- 🔥 Powiadomienie -->
+                <div id="formMessage" class="form-message"></div>
             </form>
         </div>
     </main>
 
-    <!-- 🔥 Stopka -->
-    <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-column">
-                <h3>Kontakt</h3>
-                <p>📍 Opalenica, Polska</p>
-                <p>📞 +48 607 147 759</p>
-                <p>📧 <a href="mailto:pawel.pracharczyk@light-bud.pl">pawel.pracharczyk@light-bud.pl</a></p>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>© LIGHT-BUD 2025 - Wszystkie prawa zastrzeżone.</p>
-        </div>
-    </footer>
-
     <!-- 🔥 JavaScript do obsługi formularza -->
     <script>
-        document.querySelector(".contact-form").addEventListener("submit", function(event) {
+        document.getElementById("contactForm").addEventListener("submit", function(event) {
             event.preventDefault();
             
             var form = this;
             var formData = new FormData(form);
+            var messageBox = document.getElementById("formMessage");
 
             fetch(form.action, {
                 method: form.method,
@@ -100,13 +107,19 @@
                 headers: { 'Accept': 'application/json' }
             }).then(response => {
                 if (response.ok) {
-                    alert("Dziękujemy! Wiadomość została wysłana.");
+                    messageBox.textContent = "Dziękujemy! Wiadomość została wysłana.";
+                    messageBox.className = "form-message success";
+                    messageBox.style.display = "block";
                     form.reset();
                 } else {
-                    alert("Błąd wysyłania formularza. Spróbuj ponownie.");
+                    messageBox.textContent = "Błąd wysyłania formularza. Spróbuj ponownie.";
+                    messageBox.className = "form-message error";
+                    messageBox.style.display = "block";
                 }
             }).catch(error => {
-                alert("Błąd połączenia. Spróbuj ponownie.");
+                messageBox.textContent = "Błąd połączenia. Spróbuj ponownie.";
+                messageBox.className = "form-message error";
+                messageBox.style.display = "block";
             });
         });
     </script>
