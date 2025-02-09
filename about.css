@@ -1,0 +1,232 @@
+﻿/* 🔥 Import czcionki Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
+
+/* 🔥 Resetowanie stylów */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* 🔥 Tło strony */
+body {
+    background: #0D0D0D;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* 🔥 Preloader */
+.preloader {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.preloader-logo {
+    font-size: 40px;
+    font-weight: bold;
+    color: #00BFFF;
+}
+
+.preloader-hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* 🔥 Pasek nawigacji */
+.navbar {
+    background: #111;
+    width: calc(100% - 40px);
+    margin: 10px auto;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 12px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.navbar-logo {
+    font-size: 22px;
+    font-weight: bold;
+    color: #00BFFF;
+}
+
+.navbar-list {
+    list-style: none;
+    display: flex;
+}
+
+.navbar-list li {
+    margin: 0 12px;
+}
+
+.navbar-list a {
+    text-decoration: none;
+    color: white;
+    font-size: 15px;
+    position: relative;
+    transition: color 0.3s ease-in-out;
+}
+
+
+/* 🔥 Animacja podkreślenia linków */
+.navbar-list a::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -4px;
+    width: 0;
+    height: 2px;
+    background: #00BFFF;
+    transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+}
+
+.navbar-list a:hover::after,
+.navbar-list a.active::after {
+    width: 100%;
+    left: 0;
+}
+
+/* 🔥 Sekcja "O firmie" */
+.about-section {
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.about-section h1 {
+    font-size: 42px;
+    font-weight: 700;
+    color: #00BFFF;
+    margin-bottom: 15px;
+}
+
+.about-section p {
+    font-size: 18px;
+    color: #bbb;
+    max-width: 800px;
+    margin: 0 auto 40px;
+}
+
+/* 🔥 Karty cech (BOXY) */
+.about-features {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.feature-card {
+    background: #111;
+    padding: 20px;
+    border-radius: 12px;
+    width: 320px;
+    text-align: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease-in-out;
+}
+
+.feature-card:hover {
+    transform: scale(1.05);
+}
+
+.feature-card h3 {
+    color: #bbb; /* Domyślnie szary */
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    transition: color 0.3s ease-in-out;
+}
+
+.feature-card:hover h3 {
+    color: #00BFFF; /* Niebieski po najechaniu */
+}
+
+.feature-card p {
+    color: #bbb;
+    font-size: 14px;
+}
+
+/* 🔥 Stopka */
+.footer {
+    background: #111;
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+    margin-top: auto;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.footer-column {
+    max-width: 300px;
+}
+
+.footer-column h3 {
+    font-size: 18px;
+    color: #00BFFF;
+    margin-bottom: 10px;
+}
+
+.footer-column p {
+    font-size: 14px;
+    color: #bbb;
+}
+
+/* 🔥 Linki w stopce */
+.footer-column a {
+    color: #bbb; /* Domyślnie szary */
+    text-decoration: none; 
+    transition: color 0.3s ease-in-out;
+}
+
+.footer-column a:hover {
+    color: #00BFFF; /* Niebieski po najechaniu */
+}
+
+/* 🔥 Dolna część stopki */
+.footer-bottom {
+    margin-top: 20px;
+    border-top: 1px solid #222;
+    padding-top: 8px;
+    font-size: 13px;
+    color: #bbb;
+}
+
+/* 🔥 Responsywność */
+@media (max-width: 900px) {
+    .services-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .services-container {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .navbar-list {
+        flex-direction: column;
+        gap: 10px;
+    }
+}

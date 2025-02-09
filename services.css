@@ -1,0 +1,289 @@
+﻿/* 🔥 Import czcionki Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
+
+/* 🔥 Import ikon FontAwesome */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css');
+
+/* 🔥 Reset stylów */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* 🔥 Tło strony */
+body {
+    background: #0D0D0D;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* 🔥 Preloader */
+.preloader {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.preloader-logo {
+    font-size: 40px;
+    font-weight: bold;
+    color: #00BFFF;
+}
+
+.preloader-hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* 🔥 Pasek nawigacji */
+.navbar {
+    background: #111;
+    width: calc(100% - 40px);
+    margin: 10px auto;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 12px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.navbar-logo {
+    font-size: 22px;
+    font-weight: bold;
+    color: #00BFFF;
+}
+
+.navbar-list {
+    list-style: none;
+    display: flex;
+}
+
+.navbar-list li {
+    margin: 0 12px;
+}
+
+.navbar-list a {
+    text-decoration: none;
+    color: white;
+    font-size: 15px;
+    position: relative;
+    transition: color 0.3s ease-in-out;
+}
+
+/* 🔥 Animacja podkreślenia linków w nawigacji */
+.navbar-list a::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -4px;
+    width: 0;
+    height: 2px;
+    background: #00BFFF;
+    transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+}
+
+.navbar-list a:hover::after,
+.navbar-list a.active::after {
+    width: 100%;
+    left: 0;
+}
+
+/* 🔥 Animacja wejścia sekcji usług */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.services-section {
+    text-align: center;
+    padding: 50px 20px;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+/* 🔥 Niebieski napis "Nasze Usługi" */
+.services-section h1 {
+    font-size: 36px;
+    color: #00BFFF;
+    font-weight: bold;
+}
+
+.services-section p {
+    font-size: 18px;
+    color: #bbb;
+    margin-bottom: 30px;
+}
+
+/* 🔥 Kontener usług */
+.services-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+/* 🔥 Animacja wejścia dla boksów usług */
+@keyframes fadeInBox {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.service-box {
+    background: #111;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    min-height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInBox 0.8s ease-out forwards;
+}
+
+/* 🔥 Opóźnienie animacji dla efektu "fali" */
+.service-box:nth-child(1) { animation-delay: 0.2s; }
+.service-box:nth-child(2) { animation-delay: 0.4s; }
+.service-box:nth-child(3) { animation-delay: 0.6s; }
+.service-box:nth-child(4) { animation-delay: 0.8s; }
+.service-box:nth-child(5) { animation-delay: 1s; }
+.service-box:nth-child(6) { animation-delay: 1.2s; }
+
+.service-box:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 12px #00BFFF;
+}
+
+/* 🔥 Ikony usług */
+.service-icon {
+    font-size: 40px;
+    color: #00BFFF;
+    margin-bottom: 15px;
+}
+
+/* 🔥 Teksty w boksach */
+.service-box h2 {
+    font-size: 20px;
+    color: #00BFFF;
+    margin-bottom: 10px;
+}
+
+.service-box p {
+    font-size: 15px;
+    color: #bbb;
+}
+
+/* 🔥 Stopka */
+.footer {
+    background: #111;
+    color: white;
+    width: 100%;
+    padding: 30px 0;
+    text-align: center;
+    margin-top: auto;
+}
+
+/* 🔥 Kontener stopki */
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: auto;
+    padding: 15px;
+}
+
+/* 🔥 Kolumny stopki */
+.footer-column {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+/* 🔥 Nagłówki stopki */
+.footer-column h3 {
+    color: #00BFFF;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+/* 🔥 Teksty i linki w stopce */
+.footer-column p, .footer-column a {
+    color: #bbb;
+    font-size: 14px;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+.footer-column a:hover {
+    color: #00BFFF;
+}
+
+/* 🔥 Ikony kontaktowe */
+.footer-column p i {
+    font-size: 16px;
+    margin-right: 6px;
+    color: #00BFFF;
+}
+
+/* 🔥 Dolna część stopki */
+.footer-bottom {
+    margin-top: 10px;
+    border-top: 1px solid #222;
+    padding-top: 8px;
+    font-size: 13px;
+    color: #bbb;
+}
+
+/* 🔥 Responsywność */
+@media (max-width: 900px) {
+    .services-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .services-container {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .navbar-list {
+        flex-direction: column;
+        gap: 10px;
+    }
+}

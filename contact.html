@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LIGHT-BUD | Kontakt</title>
+    <link rel="stylesheet" href="contact.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <!-- 🔥 Ekran ładowania -->
+    <div class="preloader">
+        <div class="preloader-logo">LIGHT-BUD</div>
+    </div>
+
+    <!-- 🔥 Pasek nawigacji -->
+    <nav class="navbar">
+        <div class="navbar-logo">LIGHT-BUD</div>
+        <ul class="navbar-list">
+            <li><a href="index.html">Strona główna</a></li>
+            <li><a href="about.html">O firmie</a></li>
+            <li><a href="services.html">Usługi</a></li>
+            <li><a href="contact.html" class="active">Kontakt</a></li>
+        </ul>
+    </nav>
+
+    <!-- 🔥 Sekcja kontaktowa -->
+    <main class="contact-section">
+        <h1>Skontaktuj się z nami</h1>
+        <p>Masz pytania? Wypełnij formularz lub zadzwoń do nas!</p>
+
+        <div class="contact-container">
+            <!-- 🔥 Moje dane (lewa strona) -->
+            <div class="contact-info">
+                <h3>Moje dane</h3>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Opalenica, Polska</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <span>+48 607 147 759</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:pawel.pracharczyk@light-bud.pl">pawel.pracharczyk@light-bud.pl</a>
+                </div>
+            </div>
+
+            <!-- 🔥 Formularz kontaktowy (prawa strona) -->
+            <form action="https://formspree.io/f/xqaelwvb" method="POST" class="contact-form">
+                <h3>Formularz kontaktowy</h3>
+                
+                <div class="form-group">
+                    <i class="fas fa-user"></i>
+                    <input type="text" id="name" name="name" placeholder="Imię i nazwisko" required>
+                </div>
+
+                <div class="form-group">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" id="email" name="email" placeholder="E-mail" required>
+                </div>
+
+                <div class="form-group">
+                    <i class="fas fa-comment-alt"></i>
+                    <textarea id="message" name="message" placeholder="Twoja wiadomość" rows="5" required></textarea>
+                </div>
+
+                <button type="submit">Wyślij</button>
+            </form>
+        </div>
+    </main>
+
+    <!-- 🔥 Stopka -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>Kontakt</h3>
+                <p>📍 Opalenica, Polska</p>
+                <p>📞 +48 607 147 759</p>
+                <p>📧 <a href="mailto:pawel.pracharczyk@light-bud.pl">pawel.pracharczyk@light-bud.pl</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© LIGHT-BUD 2025 - Wszystkie prawa zastrzeżone.</p>
+        </div>
+    </footer>
+
+    <!-- 🔥 JavaScript do ukrywania preloadera -->
+    <script>
+        window.addEventListener("load", function() {
+            document.querySelector(".preloader").classList.add("preloader-hidden");
+        });
+    </script>
+
+</body>
+</html>

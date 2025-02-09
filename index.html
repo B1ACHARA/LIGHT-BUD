@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LIGHT-BUD | Strona Główna</title>
+    <link rel="stylesheet" href="home.css">
+</head>
+<body>
+
+    <!-- 🔥 Ekran ładowania -->
+    <div class="preloader">
+        <div class="preloader-logo">LIGHT-BUD</div>
+    </div>
+
+    <!-- 🔥 Nawigacja -->
+    <nav class="navbar">
+        <div class="navbar-logo">LIGHT-BUD</div>
+        <ul class="navbar-list">
+            <li><a href="index.html" class="active">Strona główna</a></li>
+            <li><a href="about.html">O firmie</a></li>
+            <li><a href="services.html">Usługi</a></li>
+            <li><a href="contact.html">Kontakt</a></li>
+        </ul>
+    </nav>
+
+    <!-- 🔥 Sekcja główna -->
+    <main class="main-content">
+        <h1>LIGHT-BUD</h1>
+        <p>Profesjonalne usługi budowlane i remontowe. Zaufaj doświadczeniu i precyzji.</p>
+
+        <div class="hero-buttons">
+            <a href="contact.html" class="btn btn-blue">Skontaktuj się</a>
+            <a href="services.html" class="btn btn-dark">Nasze usługi</a>
+        </div>
+    </main>
+
+    <!-- 🔥 Stopka -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>Kontakt</h3>
+                <p>📍 Opalenica, Polska</p>
+                <p>📞 +48 607 147 759</p>
+                <p>📧 <a href="mailto:pawel.pracharczyk@light-bud.pl">pawel.pracharczyk@light-bud.pl</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© LIGHT-BUD 2025 - Wszystkie prawa zastrzeżone.</p>
+        </div>
+    </footer>
+
+    <!-- 🔥 JavaScript do ukrywania preloadera -->
+    <script>
+        window.addEventListener("load", function() {
+            document.querySelector(".preloader").classList.add("preloader-hidden");
+        });
+    </script>
+
+</body>
+</html>
