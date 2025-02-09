@@ -7,27 +7,13 @@
     <link rel="stylesheet" href="contact.css">
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-    <style>
-        /* 🔥 Styl dla powiadomień */
-        .form-message {
-            display: none;
-            padding: 10px;
-            margin-top: 10px;
-            border-radius: 5px;
-            text-align: center;
-            font-weight: bold;
-        }
-        .form-message.success {
-            background-color: #28a745;
-            color: white;
-        }
-        .form-message.error {
-            background-color: #dc3545;
-            color: white;
-        }
-    </style>
 </head>
 <body>
+
+    <!-- 🔥 Ekran ładowania -->
+    <div class="preloader">
+        <div class="preloader-logo">LIGHT-BUD</div>
+    </div>
 
     <!-- 🔥 Pasek nawigacji -->
     <nav class="navbar">
@@ -46,7 +32,7 @@
         <p>Masz pytania? Wypełnij formularz lub zadzwoń do nas!</p>
 
         <div class="contact-container">
-            <!-- 🔥 Moje dane -->
+            <!-- 🔥 Moje dane (lewa strona) -->
             <div class="contact-info">
                 <h3>Moje dane</h3>
                 <div class="contact-item">
@@ -63,8 +49,8 @@
                 </div>
             </div>
 
-            <!-- 🔥 Formularz kontaktowy -->
-            <form id="contactForm" action="https://formspree.io/f/xeoeznkl" method="POST" class="contact-form">
+            <!-- 🔥 Formularz kontaktowy (prawa strona) -->
+            <form action="https://formspree.io/f/xqaelwvb" method="POST" class="contact-form">
                 <h3>Formularz kontaktowy</h3>
                 
                 <div class="form-group">
@@ -82,55 +68,32 @@
                     <textarea id="message" name="message" placeholder="Twoja wiadomość" rows="5" required></textarea>
                 </div>
 
-                <input type="hidden" name="_subject" value="Nowa wiadomość z formularza Light-Bud!">
-
                 <button type="submit">Wyślij</button>
-
-                <!-- 🔥 Powiadomienie -->
-                <div id="formMessage" class="form-message"></div>
             </form>
         </div>
     </main>
 
-    <!-- 🔥 JavaScript do obsługi formularza -->
-<script>
-document.querySelector(".contact-form").addEventListener("submit", function(event) {
-    event.preventDefault(); // Zatrzymaj domyślne wysyłanie
-    var form = this;
-    
-    fetch(form.action, {
-        method: form.method,
-        body: new FormData(form),
-        headers: {
-            "Accept": "application/json"
-        }
-    }).then(response => {
-        if (response.ok) {
-            // Pokazuje komunikat o sukcesie
-            let successMessage = document.createElement("div");
-            successMessage.classList.add("success-message");
-            successMessage.innerHTML = "✅ Wiadomość wysłana pomyślnie!";
-            form.appendChild(successMessage);
-            setTimeout(() => successMessage.remove(), 3000);
+    <!-- 🔥 Stopka -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>Kontakt</h3>
+                <p>📍 Opalenica, Polska</p>
+                <p>📞 +48 607 147 759</p>
+                <p>📧 <a href="mailto:pawel.pracharczyk@light-bud.pl">pawel.pracharczyk@light-bud.pl</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© LIGHT-BUD 2025 - Wszystkie prawa zastrzeżone.</p>
+        </div>
+    </footer>
 
-            form.reset();
-        } else {
-            let errorMessage = document.createElement("div");
-            errorMessage.classList.add("error-message");
-            errorMessage.innerHTML = "❌ Wystąpił błąd. Spróbuj ponownie.";
-            form.appendChild(errorMessage);
-            setTimeout(() => errorMessage.remove(), 3000);
-        }
-    }).catch(error => {
-        let errorMessage = document.createElement("div");
-        errorMessage.classList.add("error-message");
-        errorMessage.innerHTML = "❌ Wystąpił problem z połączeniem.";
-        form.appendChild(errorMessage);
-        setTimeout(() => errorMessage.remove(), 3000);
-    });
-});
-</script>
-
+    <!-- 🔥 JavaScript do ukrywania preloadera -->
+    <script>
+        window.addEventListener("load", function() {
+            document.querySelector(".preloader").classList.add("preloader-hidden");
+        });
+    </script>
 
 </body>
 </html>
